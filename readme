@@ -1,0 +1,70 @@
+# Task Management System
+
+A role-based user management system built with Spring Boot and React, designed to manage tasks, user profiles, and administrative roles with secure authentication and authorization. The system supports three roles: `USER`, `ADMIN`, and `CEO`, each with distinct permissions for managing user data and tasks.
+
+## Features
+
+- **User Authentication**: Secure login/logout with session management.
+- **Role-Based Access Control**:
+  - **USER**: View/edit own profile, reset password, access tasks.
+  - **ADMIN**: View/edit own profile, reset password, view/delete `USER` role users, access tasks.
+  - **CEO**: View/edit own profile, reset password, view `USER`/`ADMIN` users (excluding own details), create/delete admins, access tasks.
+- **Profile Management**: Users can update personal details (name, phone, address, etc.).
+- **Admin Management**: CEO can create/delete `ADMIN` users.
+- **User Bio Details**: Display user details in tables (CEO: `USER`/`ADMIN`, ADMIN: `USER` only).
+- **Password Reset**: Token-based password reset with history tracking.
+- **Responsive UI**: Table-based user/admin lists with responsive design using Tailwind CSS.
+
+## Technologies
+
+- **Backend**:
+  - Spring Boot (REST API)
+  - Spring Security (authentication/authorization)
+  - Spring Data JPA (database operations)
+  - PostgreSQL (database)
+  - Hibernate (ORM)
+  - BCrypt (password hashing)
+- **Frontend**:
+  - React with TypeScript
+  - Axios (API calls)
+  - Tailwind CSS (styling)
+- **Database**: PostgreSQL with tables for users, roles, password history, and reset tokens.
+
+## Prerequisites
+
+- Java 17 or later
+- Maven 3.6+
+- Node.js 16+ and npm 7+
+- PostgreSQL 13+
+- Git
+
+## Setup Instructions
+
+### Clone the Repository
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
+
+
+Usage
+----------
+CEO Dashboard
+Login: Access http://localhost:3000 and log in with CEO credentials (e.g., ceotourista@gmail.com, password).
+View Profile: See your profile details (username, name, phone, etc.).
+Edit Profile: Click "Edit Profile" to update details.
+Manage Admins:
+View ADMIN role users in a table (username, name, phone, etc.).
+Click "Delete" to remove an admin (with confirmation).
+Use the "Create New Admin" form to add an admin.
+View Users: See USER role users in a table (username, name, phone, etc.).
+Logout: Click "Logout" to end the session.
+Admin Access
+Log in with ADMIN credentials (e.g., admin@gmail.com).
+View/edit own profile.
+View/delete USER role users only.
+(Assumed) Access an admin-specific dashboard.
+User Access
+Log in with USER credentials (e.g., yash@gmail.com).
+View/edit own profile.
+(Assumed) Access task-related features.
